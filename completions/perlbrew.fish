@@ -1,3 +1,7 @@
+if not which -s perlbrew
+    return
+end
+
 for com in (perlbrew help | perl -ne'print lc if s/^COMMAND:\s+//')
     complete -f -c perlbrew -n '__fish_perlbrew_needs_command' -a $com
 end
